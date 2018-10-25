@@ -1,14 +1,24 @@
 page{
   color: #fff;
 }
+
 .navwrap{
   display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 .block-wrap{
-  flex: 1 0 auto;
-  width:50%;
   text-align: center;
-  justify-content: center;
+}
+@media all and (max-width : 450px){
+  .block-wrap{
+    width: 50%;
+  }
+}
+@media all and (min-width : 451px){
+  .block-wrap{
+    width: 25%;
+  }
 }
 .block{
   width:150px;
