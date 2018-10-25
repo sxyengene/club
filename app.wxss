@@ -1,0 +1,8 @@
+/**app.wxss**/
+@import "./pages/common.wxss";
+page{
+  background: linear-gradient(to bottom right,#1E7C86,#205371,#204567,#4B4376,blue,#67497D,#3A4B72);
+}
+.container{
+  padding: 32rpx;
+}

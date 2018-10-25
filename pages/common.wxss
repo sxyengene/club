@@ -1,0 +1,13 @@
+.redbg{
+  background: #FF5757;
+}
+.redtext{
+  color: #FF5757;
+}
+
+.pinkbg{
+  background: #C657FF;
+}
+.pinktext{
+  color: #C657FF;
+}

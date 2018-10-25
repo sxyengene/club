@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='navwrap'>
+    <block wx:for="{{navList}}">
+      <view class='block-wrap'>
+        <button class="block {{item.bg}}" hover-class='hover-class'>
+          {{item.bg}}
+        </button>
+        <text class='block-text'>{{item.title}}</text>
+      </view>
+      
+    </block>
+  </view>
+</view>

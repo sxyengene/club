@@ -1,0 +1,26 @@
+page{
+  color: #fff;
+}
+.navwrap{
+  display: flex;
+}
+.block-wrap{
+  flex: 1 0 auto;
+  width:50%;
+  text-align: center;
+  justify-content: center;
+}
+.block{
+  width:150px;
+  height: 150px;
+  border-radius: 5px;
+  margin:0 auto;
+}
+.block-text{
+  line-height: 2.5;
+  font-size: 16px;
+}
+
+.hover-class{
+  transform: scale(0.98);
+}
