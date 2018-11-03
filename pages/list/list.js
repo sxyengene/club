@@ -5,64 +5,80 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[{
-      month:'2018.10'
+    list: [{
+      month: '2018.10',
+      shares: [{
+        title: '分享1',
+        author: '孙雄鹰'
+      }, {
+        title: '分享2',
+        author: '孙雄鹰'
+      }]
+    }, {
+      month: '2018.09',
+      shares: [{
+        title: '分享1',
+        author: '孙雄鹰'
+      }, {
+        title: '分享2',
+        author: '孙雄鹰'
+      }]
     }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   }
 })

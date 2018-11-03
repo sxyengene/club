@@ -5,19 +5,19 @@ const app = getApp()
 Page({
   data: {
     navList: [{
-      title: '评论',
+      title: '列表',
       bg: 'redbg'
     }
     ,{
-      title: '评论',
+      title: '1',
       bg: 'pinkbg'
     }
     ,{
-      title: '列表',
+      title: '2',
       bg: 'greenbg'
     }
     ,{
-      title: '列表b',
+      title: '3',
       bg: 'yellowbg'
     }
     ],
