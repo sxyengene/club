@@ -26,7 +26,12 @@
   color: #FFCC74;
 }
 
-
+.comTitle{
+  font-size: 28px;
+  line-height: 48px;
+  color:#111;
+  margin-bottom: 10px;
+}
 
 
 

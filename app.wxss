@@ -1,6 +1,7 @@
 /**app.wxss**/
 @import "weui.wxss";
 @import "common.wxss";
+@import "icons.wxss";
 
 page{
   background: linear-gradient(to bottom right,#1E7C86,#205371,#204567,#4B4376,blue,#67497D,#3A4B72);
