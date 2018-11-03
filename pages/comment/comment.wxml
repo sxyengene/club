@@ -7,7 +7,7 @@
           <view class='cm-score'>
             4.6
           </view>
-          <view class='cm-score-total'>
+          <view class='cm-score-total cm-bottom-pos'>
             5.0
           </view>
         </view>
@@ -19,7 +19,7 @@
             <view class='iconfont cm-star icon-star-fill weui-flex__item'></view>
             <view class='iconfont cm-star icon-star2 weui-flex__item'></view>
           </view>
-          <view>
+          <view class='cm-bottom-pos'>
             轻触评分
           </view>
         </view>

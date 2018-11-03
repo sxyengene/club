@@ -3,13 +3,14 @@
   color: #222;
   line-height: 40px;
   margin: 0 10px;
+  font-family: 'Impact';
 }
 .cm-score-total{
   font-size: 12px;
   color: #777;
   line-height: 14px;
   margin-left: 22px;
-  margin-top: 4px;
+  font-family: 'Impact';
 }
 .cm-star-pos{
   margin: 10px 0;
@@ -21,4 +22,8 @@
 }
 .cm-cmscore{
   text-align: center;
+}
+.cm-bottom-pos{
+  color: #999;
+ margin-top: 4px;
 }
