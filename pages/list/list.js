@@ -10,7 +10,7 @@ Page({
       shares: [{
         title: '分享1',
         author: '孙雄鹰',
-        url:'/pages/comment/comment'
+        url:'/pages/comment/comment/?shareid=1'
       }, {
         title: '分享2',
         author: '孙雄鹰'
