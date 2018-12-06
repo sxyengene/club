@@ -6,13 +6,15 @@
       <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_small-appmsg">
           <view class="weui-cells weui-cells_in-small-appmsg">
-            <navigator url="" class="weui-cell weui-cell_access fz14" hover-class="weui-cell_active" wx:for="{{item.shares}}">
-              <view class="weui-cell__bd weui-cell_primary">
-                <view>{{item.title}}——{{item.author}}</view>
-              </view>
-              <view>查看</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
+            <view wx:for="{{item.shares}}">
+              <navigator url="{{item.url}}" class="weui-cell weui-cell_access fz14" hover-class="weui-cell_active" >
+                <view class="weui-cell__bd weui-cell_primary">
+                  <view>{{item.title}}——{{item.author}}</view>
+                </view>
+                <view>查看</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </navigator>
+            </view>
           </view>
         </view>
       </view>

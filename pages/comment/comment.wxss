@@ -27,3 +27,15 @@
   color: #999;
  margin-top: 4px;
 }
+
+.cm-line-top{
+  line-height: 26px;
+  height: 26px;
+}
+.cm-nickname{
+  float: left;
+}
+.cm-cmtime{
+  float: right;
+  line-height: 26px;
+}
