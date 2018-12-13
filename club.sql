@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-12-12 21:30:26
+Date: 2018-12-13 21:00:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of course
@@ -42,6 +42,8 @@ INSERT INTO `course` VALUES ('初识微信小程序', '2018-04-24 19:14:18', '9'
 INSERT INTO `course` VALUES ('eggjs介绍', '2018-04-24 19:14:18', '10', '孙雄鹰');
 INSERT INTO `course` VALUES ('SSR（vue，egg）搭建UED平台', '2018-11-14 19:44:56', '11', '姚永芳');
 INSERT INTO `course` VALUES ('VSCode插件开发', '2018-10-12 00:00:00', '12', '杨晟');
+INSERT INTO `course` VALUES ('手炒移动端基础分享', '2018-11-28 00:00:00', '13', '尹上升');
+INSERT INTO `course` VALUES ('spa在港美股交易中的应用', '2018-12-13 21:00:34', '14', '彭声明');
 
 -- ----------------------------
 -- Table structure for user
