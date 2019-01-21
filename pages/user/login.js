@@ -8,7 +8,8 @@ Page({
    */
   data: {
     username:'',
-    password:''
+    password:'',
+    hasAuthSetting:true
   },
 
   /**
@@ -88,13 +89,48 @@ Page({
     })
   },
   auth:function(){
+    var that = this;
     wx.getSetting({
       success(res){
         if (res.authSetting['scope.userInfo']){
-          console.log(123);
+          that.setData({
+            hasAuthSetting: true
+          })
+          that.login();
+        }else{
+          that.setData({
+            hasAuthSetting: false
+          })
         }
-
       }
     })  
+  },
+  login(){
+    console.log('login')
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log(res.code);
+          wx.request({
+            url: utils.url('wxlogin'),
+            data: {
+              jscode: res.code
+            },
+            success(json){
+              if (json.data.errorCode == '200'){
+                console.log('suc')
+              }else{
+                console.log('fail')
+              }
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
+  bindGetUserInfo(){
+    this.login();
   }
 })
