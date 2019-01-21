@@ -1,15 +1,15 @@
 .redbg{
-  background: #FF5757;
+  background: #b25742;
 }
 .redtext{
-  color: #FF5757;
+  color: #b25742;
 }
 
 .pinkbg{
-  background: #C657FF;
+  background: #b24277;
 }
 .pinktext{
-  color: #C657FF;
+  color: #b24277;
 }
 
 .greenbg{
@@ -29,8 +29,24 @@
 .comTitle{
   font-size: 28px;
   line-height: 48px;
-  color:#111;
+  color:#fff;
   margin-bottom: 10px;
+}
+
+.pink{
+  color: #b24277;
+}
+
+.blue{
+  color: #4287b2;
+}
+
+.red{
+  color: #b25742;
+}
+
+.brown{
+  color: #b28642;
 }
 
 

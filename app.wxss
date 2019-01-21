@@ -4,7 +4,7 @@
 @import "icons.wxss";
 
 page{
-  background: url('./images/bg.jpg');
+  background: url('https://i-debug.com/frontclub/public/bg.jpg');
 }
 .container{
   padding: 32rpx;

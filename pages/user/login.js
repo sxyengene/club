@@ -1,3 +1,5 @@
+import utils from '../../utils/util.js';
+
 // pages/user/login.js
 Page({
 
@@ -5,14 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    username:'',
+    password:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function (options) {  
+    this.auth();
   },
 
   /**
@@ -62,5 +65,36 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  login:function(){
+    wx.request({
+      url: utils.url(),
+      success:function(e){
+        console.log(e)
+      },
+      fail:function(e){
+        console.log(e)
+      }
+    })
+  },
+  usernameInput: function (e) {
+    this.setData({
+      username: e.detail.value
+    })
+  },
+  passwordInput: function (e) {
+    this.setData({
+      password: e.detail.value
+    })
+  },
+  auth:function(){
+    wx.getSetting({
+      success(res){
+        if (res.authSetting['scope.userInfo']){
+          console.log(123);
+        }
+
+      }
+    })  
   }
 })

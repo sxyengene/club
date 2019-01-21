@@ -14,6 +14,17 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const url = 'https://i-debug.com/frontclub';
+
+const URL = function(str){
+  if (/^\//.test(str)){
+    return url + str;
+  }else{
+    return url + '/' + str;
+  }
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  url: URL
 }
