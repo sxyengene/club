@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 172.19.80.215
-Source Server Version : 50720
-Source Host           : 172.19.80.215:3306
+Source Server         : 47.99.96.170
+Source Server Version : 50724
+Source Host           : 47.99.96.170:3306
 Source Database       : club
 
 Target Server Type    : MYSQL
-Target Server Version : 50720
+Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2018-12-13 21:00:52
+Date: 2019-01-11 16:12:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `coursename` varchar(50) DEFAULT NULL,
-  `coursetime` timestamp NULL DEFAULT NULL,
+  `coursetime` int(11) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -30,20 +30,20 @@ CREATE TABLE `course` (
 -- ----------------------------
 -- Records of course
 -- ----------------------------
-INSERT INTO `course` VALUES ('websocket之即时通讯', '2018-02-07 19:00:00', '1', '李欣羿');
-INSERT INTO `course` VALUES ('js动画之requestAnimationFrame', '2018-02-27 19:14:18', '2', '罗亚男');
-INSERT INTO `course` VALUES ('Easy-Mock的使用', '2018-03-21 19:14:18', '3', '李子淇');
-INSERT INTO `course` VALUES ('vue的基本使用', '2018-04-11 19:14:18', '4', '李子淇');
-INSERT INTO `course` VALUES ('vue的基本使用', '2018-04-13 19:14:18', '5', '王怡新');
-INSERT INTO `course` VALUES ('实现一个简单的数据双向绑定', '2018-04-16 19:14:18', '6', '张华挺');
-INSERT INTO `course` VALUES ('ES6基础知识分享', '2018-04-18 19:14:18', '7', '臧悦超');
-INSERT INTO `course` VALUES ('如何在老项目中使用vue', '2018-04-23 19:14:18', '8', '王怡新');
-INSERT INTO `course` VALUES ('初识微信小程序', '2018-04-24 19:14:18', '9', '姚永芳');
-INSERT INTO `course` VALUES ('eggjs介绍', '2018-04-24 19:14:18', '10', '孙雄鹰');
-INSERT INTO `course` VALUES ('SSR（vue，egg）搭建UED平台', '2018-11-14 19:44:56', '11', '姚永芳');
-INSERT INTO `course` VALUES ('VSCode插件开发', '2018-10-12 00:00:00', '12', '杨晟');
-INSERT INTO `course` VALUES ('手炒移动端基础分享', '2018-11-28 00:00:00', '13', '尹上升');
-INSERT INTO `course` VALUES ('spa在港美股交易中的应用', '2018-12-13 21:00:34', '14', '彭声明');
+INSERT INTO `course` VALUES ('websocket之即时通讯', '1517961600', '1', '李欣羿');
+INSERT INTO `course` VALUES ('js动画之requestAnimationFrame', '1519689600', '2', '罗亚男');
+INSERT INTO `course` VALUES ('Easy-Mock的使用', '1521590400', '3', '李子淇');
+INSERT INTO `course` VALUES ('vue的基本使用', '1523404800', '4', '李子淇');
+INSERT INTO `course` VALUES ('vue的基本使用', '1523577600', '5', '王怡新');
+INSERT INTO `course` VALUES ('实现一个简单的数据双向绑定', '1523836800', '6', '张华挺');
+INSERT INTO `course` VALUES ('ES6基础知识分享', '1524009600', '7', '臧悦超');
+INSERT INTO `course` VALUES ('如何在老项目中使用vue', '1524441600', '8', '王怡新');
+INSERT INTO `course` VALUES ('初识微信小程序', '1524528000', '9', '姚永芳');
+INSERT INTO `course` VALUES ('eggjs介绍', '1524528000', '10', '孙雄鹰');
+INSERT INTO `course` VALUES ('SSR（vue，egg）搭建UED平台', '1542153600', '11', '姚永芳');
+INSERT INTO `course` VALUES ('VSCode插件开发', '1539302400', '12', '杨晟');
+INSERT INTO `course` VALUES ('手炒移动端基础分享', '1543363200', '13', '尹上升');
+INSERT INTO `course` VALUES ('spa在港美股交易中的应用', '1544659200', '14', '彭声明');
 
 -- ----------------------------
 -- Table structure for user
@@ -51,14 +51,19 @@ INSERT INTO `course` VALUES ('spa在港美股交易中的应用', '2018-12-13 21
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
   `department` varchar(20) DEFAULT NULL,
   `nickname` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `password` varchar(100) DEFAULT NULL,
+  `lastvisit` varchar(20) DEFAULT NULL,
+  `token` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '孙雄鹰', 'SNS', '草帽');
-INSERT INTO `user` VALUES ('2', '李欣羿', 'SNS', '黑白');
+INSERT INTO `user` VALUES ('1', '孙雄鹰', 'SNS', '草帽', '123', null, null);
+INSERT INTO `user` VALUES ('2', '李欣羿', 'SNS', '黑白', '123', null, null);
+INSERT INTO `user` VALUES ('3', '123', 'SNS', '333', '40331e480af9d79bf829f18078f220adbee2519f8c5b29f6449c9e7e0ca13ecd', '1547193681290', '526e326e6e19bf3cbf439cba95863b05d4203ae003583f7a3339f74f3b1f7d8c');

@@ -1,0 +1,23 @@
+<view class='container' id="container">
+  <view class='comTitle'>所有的分享</view>
+  <view class='page list js_show'>
+    <view class="weui-panel" wx:for="{{list}}" wx:key="{{list.month}}">
+      <view class="weui-panel__hd">{{item.month}}</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <view wx:for="{{item.shares}}">
+              <navigator url="{{item.url}}" class="weui-cell weui-cell_access fz14" hover-class="weui-cell_active" >
+                <view class="weui-cell__bd weui-cell_primary">
+                  <view>{{item.title}}——{{item.author}}</view>
+                </view>
+                <view>查看</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
