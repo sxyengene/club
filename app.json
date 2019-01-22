@@ -4,6 +4,7 @@
     "pages/list/list",
     "pages/user/login",
     "pages/comment/comment",
+    "pages/user/login",
     "pages/logs/logs"
   ],
   "window":{

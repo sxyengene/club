@@ -1,54 +1,53 @@
-<!--pages/user/login.wxml-->
 <view class='container' id="container">
-  <view class='comTitle'>全部评论</view>
-  <view class="weui-panel weui-panel_access">
-    <view class="weui-panel__hd">
-      <view class='weui-flex'>
-        <view class=' weui-flex__item'>
-          <view class='cm-score'>
-            4.6
-          </view>
-          <view class='cm-score-total cm-bottom-pos'>
-            5.0
-          </view>
-        </view>
-        <view class='cm-cmscore'>
-          <view class='weui-flex cm-star-pos'>
-            <view class='iconfont cm-star icon-star-fill weui-flex__item'></view>
-            <view class='iconfont cm-star icon-star-fill weui-flex__item'></view>
-            <view class='iconfont cm-star icon-star-fill weui-flex__item'></view>
-            <view class='iconfont cm-star icon-star-fill weui-flex__item'></view>
-            <view class='iconfont cm-star icon-star2 weui-flex__item'></view>
-          </view>
-          <view class='cm-bottom-pos'>
-            轻触评分
-          </view>
-        </view>
+  <view class='auth' wx:if="{{showAuthSettings}}">
+    <view class="userinfo">
+      <view class="userinfo-avatar mb10">
+        <open-data type="userAvatarUrl"></open-data>
       </view>
+        <open-data class="mb10 cfff fz40" type="userNickName"></open-data>
     </view>
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
-          <view class='cm-nickname fz14 c333'>
-            标题一
-          </view> 
-          <view class='cm-cmtime c999 fz12'>
-            2018-10 06:10
+    <button class='greenbg cfff' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  </view>
+
+  <view wx:if="{{otherIsShow}}">
+    <view class='comTitle cfff'>绑定人员信息</view>
+    <view class='page list js_show'>
+      <view class="weui-cells">
+          <view class="weui-cell weui-cell_input weui-cells_after-title {{namewarn? 'weui-cell_warn' : ''}}">
+            <view class="weui-cell__hd">
+                <view class="weui-label">姓名</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入姓名" bindinput="usernameInput"/>
+            </view>
+            <view class="weui-cell__ft " hidden="{{!namewarn}}">
+                <icon type="warn" size="23" color="#E64340"></icon>
+            </view>
           </view>
-        </view>
-        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-      </view>
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
-          <view class='cm-nickname fz14 c333'>
-            标题一
-          </view> 
-          <view class='cm-cmtime c999 fz12'>
-            2018-10 06:10
+          <view class="weui-cell weui-cell_input {{nicknamewarn? 'weui-cell_warn' : ''}}">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">花名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input type='text' class="weui-input" placeholder="请输入俱乐部花名" bindinput='nicknameInput' />
+              </view>
+              <view class="weui-cell__ft " hidden="{{!nicknamewarn}}">
+                <icon type="warn" size="23" color="#E64340"></icon>
+            </view>
           </view>
-        </view>
-        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+          <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">部门</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="binddepartmentChange" value="{{departmentIndex}}" range="{{departments}}">
+                        <view class="weui-select weui-select_in-select-after">{{departments[departmentIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
       </view>
+      <button class="weui-btn" type="primary" bindtap="submit">提交</button>
     </view>
   </view>
+  
 </view>

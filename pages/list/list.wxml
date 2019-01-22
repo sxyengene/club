@@ -1,5 +1,5 @@
 <view class='container' id="container">
-  <view class='comTitle'>所有的分享</view>
+  <view class='comTitle cfff'>所有的分享</view>
   <view class='page list js_show'>
     <view class="weui-panel" wx:for="{{list}}" wx:key="{{list.month}}">
       <view class="weui-panel__hd">{{item.month}}</view>
