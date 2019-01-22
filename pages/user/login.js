@@ -8,8 +8,14 @@ Page({
    */
   data: {
     username:'',
-    password:'',
-    hasAuthSetting:true
+    nickname:'',
+    showAuthSettings:false,
+    otherIsShow:false, //其他信息是否显示
+    openid:'',
+    departmentIndex:0,
+    departments:['投顾平台','手抄','网站','B2C','B2B','美股'],
+    namewarn:false,
+    nicknamewarn:false,
   },
 
   /**
@@ -67,50 +73,42 @@ Page({
   onShareAppMessage: function () {
   
   },
-  login:function(){
-    wx.request({
-      url: utils.url(),
-      success:function(e){
-        console.log(e)
-      },
-      fail:function(e){
-        console.log(e)
-      }
-    })
-  },
   usernameInput: function (e) {
     this.setData({
       username: e.detail.value
     })
   },
-  passwordInput: function (e) {
+  nicknameInput(e){
     this.setData({
-      password: e.detail.value
+      nickname: e.detail.value
     })
   },
   auth:function(){
-    var that = this;
+    var self = this;
     wx.getSetting({
       success(res){
         if (res.authSetting['scope.userInfo']){
-          that.setData({
-            hasAuthSetting: true
+          console.log('hasAuth')
+          self.setData({
+            showAuthSettings: false
           })
-          that.login();
+          self.login();
         }else{
-          that.setData({
-            hasAuthSetting: false
+          console.log('noAuth')
+          self.setData({
+            showAuthSettings: true
           })
         }
       }
     })  
   },
   login(){
-    console.log('login')
+    console.log('start login')
+    var self = this;
     wx.login({
       success(res) {
         if (res.code) {
-          console.log(res.code);
+          console.log(`wx.login suc,${res.code}`);
           wx.request({
             url: utils.url('wxlogin'),
             data: {
@@ -118,9 +116,24 @@ Page({
             },
             success(json){
               if (json.data.errorCode == '200'){
-                console.log('suc')
+                let result = json.data.result;
+                self.setData({
+                  openid: result.openid
+                })
+                wx.setStorageSync('openid', result.openid);
+
+                if(result.signed){
+                  //登录且 用户存在 应该跳转到其他页面
+                  console.log(`signed:${result.signed}`)
+                }else{
+                  console.log(`signed:${result.signed}`)
+                  //登录成功 但用户未绑定
+                  self.setData({
+                    otherIsShow:true,
+                  })
+                }
               }else{
-                console.log('fail')
+                
               }
             }
           })
@@ -131,6 +144,55 @@ Page({
     })
   },
   bindGetUserInfo(){
-    this.login();
+    this.onLoad();
+  },
+  //切换部门
+  binddepartmentChange(e){
+    console.log(123);
+    this.setData({
+      departmentIndex: e.detail.value
+    })
+  },
+  //提交绑定数据信息
+  submit(){
+    console.log('start submit');
+    var data = this.data;
+    if (utils.trim(data.username).length == 0){
+      this.setData({ namewarn:true});
+      return;
+    }else{
+      this.setData({ namewarn: false });
+    }
+
+    if (utils.trim(data.nickname).length == 0) {
+      this.setData({ nicknamewarn: true });
+      return;
+    } else {
+      this.setData({ nicknamewarn: false });
+    }
+
+    var oData = {
+      name: data.username,
+      nickname: data.nickname,
+      department: data.departments[data.departmentIndex],
+      openid:data.openid
+    };
+    console.log(JSON.stringify(oData));
+  
+    wx.request({
+      url: utils.url('/submitWxInfo/'),
+      data:oData,
+      success(json){
+        if(json.errorCode == '200'){
+          
+        }else{
+
+        }
+      }
+    })
+    //返回上一页
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })

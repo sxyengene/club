@@ -16,7 +16,7 @@ const formatNumber = n => {
 
 const url = 'https://i-debug.com/frontclub';
 
-const URL = function(str){
+const urlFunc = function(str){
   if (/^\//.test(str)){
     return url + str;
   }else{
@@ -24,7 +24,12 @@ const URL = function(str){
   }
 }
 
+const trim = str => {
+  return str.replace(/^\s/g, '').replace(/\s$/g, '');
+}
+
 module.exports = {
   formatTime: formatTime,
-  url: URL
+  url: urlFunc,
+  trim: trim
 }

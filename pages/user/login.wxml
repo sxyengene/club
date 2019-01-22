@@ -1,34 +1,53 @@
 <view class='container' id="container">
-  <view class='comTitle'>前端俱乐部登录</view>
-  <view wx:if="{{!hasAuthSetting}}">
+  <view class='auth' wx:if="{{showAuthSettings}}">
     <view class="userinfo">
       <view class="userinfo-avatar mb10">
         <open-data type="userAvatarUrl"></open-data>
       </view>
-        <open-data class="mb10 green fz40" type="userNickName"></open-data>
+        <open-data class="mb10 cfff fz40" type="userNickName"></open-data>
     </view>
     <button class='greenbg cfff' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
   </view>
-  
-  <view class='page list js_show'>
-     <view class="weui-cells">
-        <view class="weui-cell weui-cell_input weui-cells_after-title">
-          <view class="weui-cell__hd">
-              <view class="weui-label">用户名</view>
-          </view>
-          <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入用户名" bindinput="usernameInput"/>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_input weui-cell_vcode">
+
+  <view wx:if="{{otherIsShow}}">
+    <view class='comTitle cfff'>绑定人员信息</view>
+    <view class='page list js_show'>
+      <view class="weui-cells">
+          <view class="weui-cell weui-cell_input weui-cells_after-title {{namewarn? 'weui-cell_warn' : ''}}">
             <view class="weui-cell__hd">
-                <view class="weui-label">密码</view>
+                <view class="weui-label">姓名</view>
             </view>
             <view class="weui-cell__bd">
-                <input password type='text' class="weui-input" placeholder="请输入密码" bindinput='passwordInput' />
+                <input class="weui-input" placeholder="请输入姓名" bindinput="usernameInput"/>
             </view>
-        </view>
-     </view>
-     <button class="weui-btn" type="primary" bindtap="login">登录</button>
+            <view class="weui-cell__ft " hidden="{{!namewarn}}">
+                <icon type="warn" size="23" color="#E64340"></icon>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input {{nicknamewarn? 'weui-cell_warn' : ''}}">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">花名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input type='text' class="weui-input" placeholder="请输入俱乐部花名" bindinput='nicknameInput' />
+              </view>
+              <view class="weui-cell__ft " hidden="{{!nicknamewarn}}">
+                <icon type="warn" size="23" color="#E64340"></icon>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">部门</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="binddepartmentChange" value="{{departmentIndex}}" range="{{departments}}">
+                        <view class="weui-select weui-select_in-select-after">{{departments[departmentIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+      </view>
+      <button class="weui-btn" type="primary" bindtap="submit">提交</button>
+    </view>
   </view>
+  
 </view>

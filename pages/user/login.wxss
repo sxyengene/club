@@ -1,4 +1,13 @@
 /* pages/user/login.wxss */
+page{
+  height: 100%;
+}
+.container{
+  height: 100%;
+}
+.auth{
+  margin-top: 150rpx;
+}
 .userinfo {  
   position: relative;  
   color: #fff;  
