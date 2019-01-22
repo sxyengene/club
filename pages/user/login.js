@@ -184,9 +184,9 @@ Page({
       data:oData,
       success(json){
         if(json.errorCode == '200'){
-          
+          //成功
         }else{
-
+          //注册失败
         }
       }
     })

@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-const url = 'https://i-debug.com/frontclub';
+const url = 'https://i-debug.com/frontclub/wx';
 
 const urlFunc = function(str){
   if (/^\//.test(str)){
