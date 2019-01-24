@@ -1,3 +1,5 @@
+import utils from '../../utils/util.js';
+
 // pages/list/list.js
 Page({
 
@@ -7,23 +9,7 @@ Page({
   data: {
     list: [{
       month: '2018.10',
-      shares: [{
-        title: '分享1',
-        author: '孙雄鹰',
-        url:'/pages/comment/comment/?shareid=1'
-      }, {
-        title: '分享2',
-        author: '孙雄鹰'
-      }]
-    }, {
-      month: '2018.09',
-      shares: [{
-        title: '分享1',
-        author: '孙雄鹰'
-      }, {
-        title: '分享2',
-        author: '孙雄鹰'
-      }]
+      shares: []
     }]
   },
 
@@ -31,7 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-
+    this.getAllCourses();
   },
 
   /**
@@ -81,5 +67,33 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  getAllCourses(){
+    const openid = wx.getStorageSync('openid');
+    const self = this;
+
+    let oData = {
+      openid: openid
+    }
+
+    wx.request({
+      url: utils.url('allCourses'),
+      data:oData,
+      success(json){
+        if(json.data.errorCode == '200'){
+          
+          let list= json.data.result.list,date;
+          list.forEach((val, index) => {
+            date = new Date(+val.coursetime)
+            val.year = date.getFullYear();
+            val.month = date.getMonth() + 1;
+          })
+          
+          self.setData({
+            list: list
+          })
+        }
+      }
+    })
   }
 })
