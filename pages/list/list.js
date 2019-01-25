@@ -81,17 +81,11 @@ Page({
       data:oData,
       success(json){
         if(json.data.errorCode == '200'){
-          
-          let list= json.data.result.list,date;
-          list.forEach((val, index) => {
-            date = new Date(+val.coursetime)
-            val.year = date.getFullYear();
-            val.month = date.getMonth() + 1;
-          })
-          
+          let list= json.data.result.list;
           self.setData({
             list: list
           })
+          console.log(list)
         }
       }
     })
