@@ -10,7 +10,8 @@ Page({
     list: [{
       month: '2018.10',
       shares: []
-    }]
+    }],
+    haslist:false
   },
 
   /**
@@ -83,7 +84,8 @@ Page({
         if(json.data.errorCode == '200'){
           let list= json.data.result.list;
           self.setData({
-            list: list
+            list: list,
+            haslist:true
           })
           console.log(list)
         }
