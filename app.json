@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/list/list",
     "pages/user/login",
+    "pages/user/sign",
     "pages/comment/comment",
     "pages/logs/logs"
   ],

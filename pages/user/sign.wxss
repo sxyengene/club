@@ -1,0 +1,30 @@
+/* pages/user/sign.wxss */
+/* pages/user/login.wxss */
+page{
+  height: 100%;
+}
+.container{
+  height: 100%;
+}
+.auth{
+  margin-top: 150rpx;
+}
+.userinfo {  
+  position: relative;  
+  color: #fff;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  font-size: 14px;  
+  border-radius:40%;  
+}  
+  
+.userinfo-avatar {  
+  overflow:hidden;  
+  display: block;  
+  width: 250rpx;  
+  height: 250rpx;  
+  border-radius: 50%;  
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}  
