@@ -46,3 +46,8 @@ page {
   display: block;
   border-radius: 50%;
 }
+
+.scan{
+  width:50rpx;
+  height:50rpx;
+}

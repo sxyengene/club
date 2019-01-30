@@ -1,15 +1,17 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='navwrap'>
-    <view class="weui-cell">
-      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-        <image src="https://i-debug.com/frontclub/public/avatar/boy.jpg" class='avatar' />
-      </view>
-      <view class="weui-cell__bd">
-        <view>联系人名称</view>
-        <view style="font-size: 13px;color: #888888;">摘要信息</view>
-      </view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <image src="https://i-debug.com/frontclub/public/avatar/boy.jpg" class='avatar' />
     </view>
+    <view class="weui-cell__bd">
+      <view>未登录</view>
+      <view class='fz28 cfff'>暂无信息</view>
+    </view>
+    <image class='scan' src="https://i-debug.com/frontclub/public/scan.png" bindtap='scan'></image>
+  </view>
+  <view class='navwrap'>
+
     <block wx:for="{{navList}}">
       <view class='block-wrap'>
         <navigator open-type='navigate' url='/pages/list/list'>

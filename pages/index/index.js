@@ -29,6 +29,14 @@ Page({
   onLoad: function() {
     this.getSetting();
   },
+  scan(){
+    wx.scanCode({
+      scanType:'qrCode',
+      success(json){
+        console.log(json.path);
+      }
+    });
+  },
   getSetting: function(e) {
     var self = this;
     wx.getSetting({
