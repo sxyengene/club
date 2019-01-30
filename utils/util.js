@@ -14,6 +14,8 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const urlPrefix = '//i-debug.com/';
+
 const url = 'https://i-debug.com/frontclub/wx';
 
 const urlFunc = function(str){
@@ -31,5 +33,6 @@ const trim = str => {
 module.exports = {
   formatTime: formatTime,
   url: urlFunc,
-  trim: trim
+  urlPrefix,
+  trim
 }

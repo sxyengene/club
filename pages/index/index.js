@@ -1,5 +1,7 @@
 //index.js
 //获取应用实例
+import utils from '../../utils/util.js';
+
 const app = getApp()
 
 Page({
@@ -31,11 +33,30 @@ Page({
   },
   scan(){
     wx.scanCode({
-      scanType:'qrCode',
+      onlyFromCamera:false,
+      scanType: "QR_CODE",
       success(json){
-        console.log(json.path);
+        if (json.result.includes(utils.urlPrefix)){
+          console.log(json.result)
+          if(1){
+
+          }
+        }else{
+          console.log('out')
+        }
+        console.log('suc')
+        console.log(json)
+        console.log(json.result);
+      },
+      error(e){
+        console.log('error')
+        console.log(JSON.stringify(e));
       }
     });
+  },
+  //签到
+  sign(){
+
   },
   getSetting: function(e) {
     var self = this;
