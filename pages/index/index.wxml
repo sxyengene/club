@@ -1,15 +1,17 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="weui-cell ">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+  <view class="weui-cell mb20">
+    <view class="weui-cell__hd" bindtap='needLogin' style="position: relative;margin-right: 10px;">
       <image src="https://i-debug.com/frontclub/public/avatar/boy.jpg" class='avatar' />
+      <!-- <image src="http://47.99.96.170:7001/public/avatar/boy.jpg" class='avatar' /> -->
     </view>
-    <view class="weui-cell__bd">
+    <view class="weui-cell__bd" bindtap='needLogin'>
       <view>未登录</view>
       <view class='fz28 cfff'>暂无信息</view>
     </view>
     <image class='scan' src="https://i-debug.com/frontclub/public/scan.png" bindtap='scan'></image>
-  </view>
+    <!-- <image class='scan' src="http://47.99.96.170:7001/public/scan.png" bindtap='scan'></image>-->
+  </view> 
   <view class='navwrap'>
 
     <block wx:for="{{navList}}">
