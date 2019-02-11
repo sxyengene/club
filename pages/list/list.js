@@ -8,8 +8,15 @@ Page({
    */
   data: {
     list: [{
-      month: '2018.10',
-      shares: []
+      coursename: "nodejs调试及异常处理",
+      coursetime: "1548691200000",
+      floor: 7,
+      id: 19,
+      meeting: "cortana",
+      month: 1,
+      name: "尹可可",
+      time: "2019年1月29日",
+      year: 2019,
     }],
     haslist:false
   },
@@ -83,6 +90,9 @@ Page({
       success(json){
         if(json.data.errorCode == '200'){
           let list= json.data.result.list;
+          list.forEach((val,index)=>{
+            val.url = `/pages/comment/comment?id=${val.id}`
+          })
           self.setData({
             list: list,
             haslist:true

@@ -39,3 +39,8 @@
   float: right;
   line-height: 26px;
 }
+.comTitleLimit{
+  text-overflow:ellipsis;
+  height: 48px;
+  overflow: hidden;
+}

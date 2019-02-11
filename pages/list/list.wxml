@@ -1,5 +1,5 @@
 <view class='container' id="container">
-  <view class='comTitle cfff'>所有的分享</view>
+  <view class='comTitle cfff'>我们已做过的分享</view>
   <view class='page list js_show' v-if="haslist">
     <view wx:for="{{list}}" class='mb40'>
       <view class="weui-panel">
@@ -12,7 +12,7 @@
         <view class="weui-panel__bd">
           <view class="weui-media-box weui-media-box_small-appmsg">
             <view class="weui-cells weui-cells_in-small-appmsg">
-              <navigator url="" class="weui-cell weui-cell_access fz28" hover-class="weui-cell_active">
+              <navigator url="{{item.url}}" class="weui-cell weui-cell_access fz28" hover-class="weui-cell_active">
                 <view class="weui-cell__bd weui-cell_primary">
                     {{item.coursename}}
                 </view>

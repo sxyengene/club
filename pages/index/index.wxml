@@ -2,23 +2,21 @@
 <view class="container">
   <view class="weui-cell mb20">
     <view class="weui-cell__hd" bindtap='needLogin' style="position: relative;margin-right: 10px;">
-      <image src="https://i-debug.com/frontclub/public/avatar/boy.jpg" class='avatar' />
+      <image src="{{avatarUrl}}" class='avatar' />
       <!-- <image src="http://47.99.96.170:7001/public/avatar/boy.jpg" class='avatar' /> -->
     </view>
     <view class="weui-cell__bd" bindtap='needLogin'>
-      <view>未登录</view>
+      <view>{{nickName}}</view>
       <view class='fz28 cfff'>暂无信息</view>
     </view>
     <image class='scan' src="https://i-debug.com/frontclub/public/scan.png" bindtap='scan'></image>
     <!-- <image class='scan' src="http://47.99.96.170:7001/public/scan.png" bindtap='scan'></image>-->
   </view> 
   <view class='navwrap'>
-
     <block wx:for="{{navList}}">
       <view class='block-wrap'>
-        <navigator open-type='navigate' url='/pages/list/list'>
-          <button class="block {{item.bg}}" hover-class='hover-class'></button>
-          <text class='block-text'>{{item.title}}</text>
+        <navigator open-type='navigate' url='{{item.url}}'>
+          <button class="block {{item.bg}}" hover-class='hover-class'>{{item.title}}</button>
         </navigator>
       </view>
     </block>
