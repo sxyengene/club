@@ -6,7 +6,8 @@ import utils from '../../utils/util.js';
 Page({
   data: {
     courseid:0,
-    coursename:'全部评论'
+    coursename:'全部评论',
+    list:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -28,15 +29,21 @@ Page({
       return;
     }
     let oData = {
-      id: this.data.courseid
+      courseid: this.data.courseid
     };
+
     wx.request({
-      url: utils.url('findByCourseId'),
+      url: utils.url('commentFindByCourseId'),
       data: oData,
       success(json) {
         let data = json.data;
         if (data.errorCode == 200) {
-          self.setData(data.result);
+          if(data.result.length){
+            self.setData({ list:data.result });
+          }else{
+
+          }
+          
         }
       }
     })
