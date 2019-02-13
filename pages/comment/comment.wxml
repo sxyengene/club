@@ -1,6 +1,7 @@
 <view class='container' id="container">
-  <view class='comTitle comTitleLimit'>{{coursename}}</view>
-  <view class="weui-panel weui-panel_access">
+  <view class='comTitle comTitleLimit mb0'>{{coursename}}</view>
+  <view class='weui-cell__ft cfff fz32 mb10'>{{owner}} {{coursetime}}</view>
+  <view class="weui-panel weui-panel_access mt0">
     <!-- <view class="weui-panel__hd">
       <view class='weui-flex'>
         <view class=' weui-flex__item'>
@@ -26,16 +27,16 @@
       </view>
     </view> -->
     <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box weui-media-box_text" wx:for="{{list}}">
         <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
           <view class='cm-nickname fz28 c333'>
-            标题一
+            {{item.name}}
           </view> 
           <view class='cm-cmtime c999 fz24'>
-            2018-10 06:10
+            {{item.ctime}}
           </view>
         </view>
-        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        <view class="weui-media-box__desc">{{item.content}}</view>
       </view>
     </view>
   </view>
