@@ -9,7 +9,12 @@ Page({
     coursename:'全部评论',
     owner:'',
     coursetime:'',
-    list:[],
+    list:[{
+      content: "",
+      ctime: "",
+      name: "",
+      userid: 0,
+    }],
     clength:0,
     comment:'',
   },
@@ -23,9 +28,26 @@ Page({
     });
 
     this.initVars();
+    this.getUserInfo();
   },
   getUserInfo: function(e) {
-
+    let openid = wx.getStorageSync('openid');
+    if (!openid) {
+      utils.goLogin();
+      return;
+    }
+    var oData = {
+      openid
+    };
+    wx.request({
+      url: utils.url('findUserById'),
+      data: oData,
+      success(json){
+        if(json.data.errorCode == 200){
+          
+        }
+      }
+    })
   },
   initVars() {
     var self = this;
@@ -49,7 +71,7 @@ Page({
         let data = json.data;
         if (data.errorCode == 200) {
           if (data.result.length) {
-            data.result = [];
+            // data.result = [];
             self.setData({ list: data.result });
           } else {
 
@@ -87,12 +109,11 @@ Page({
   },
   commentconfirm(){
     let openid = wx.getStorageSync('openid');
-    console.log(openid)
     if (!openid) {
       utils.goLogin();
       return;
     }
-    console.log( ( this.data.comment.length <= 5) )
+    
 
     if (this.data.comment.length <= 5){
       wx.showToast({
@@ -106,14 +127,24 @@ Page({
     let oData = {
       courseid:this.data.courseid,
       content: this.data.comment,
+      openid: openid
     };
+
+    let listObj = {
+      content: this.data.comment,
+      ctime: utils.fTime(new Date),
+      name: "",
+    }
 
     wx.request({
       url: utils.url('addComment'),
       data:oData,
       success(json){
         if(json.data.result == '200'){
-          console.log('suc')
+          self.setData({
+            comment:'',
+            list: [...self.data.list.concat,]
+          })
         }
       }
     })

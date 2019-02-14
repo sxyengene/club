@@ -27,18 +27,20 @@
       </view>
     </view> -->
     <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text" wx-if="{{list.length}}" wx:for="{{list}}">
-        <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
-          <view class='cm-nickname fz28 c333'>
-            {{item.name}}
+      <view wx:if="{{list.length}}">
+        <view class="weui-media-box weui-media-box_text" wx:for="{{list}}">
+          <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
+            <view class='cm-nickname fz28 c333'>
+              {{item.name}}
+            </view>
+            <view class='cm-cmtime c999 fz24'>
+              {{item.ctime}}
+            </view>
           </view>
-          <view class='cm-cmtime c999 fz24'>
-            {{item.ctime}}
-          </view>
+          <view class="weui-media-box__desc">{{item.content}}</view>
         </view>
-        <view class="weui-media-box__desc">{{item.content}}</view>
       </view>
-      <view class="weui-media-box weui-media-box_text" wx-else>
+      <view class="weui-media-box weui-media-box_text" wx:else>
         <view class="weui-media-box__desc tac fz32">
           <image class='mb30' src="//i-debug.com/frontclub/public/waiting.gif"></image>
           暂无评论，写下你想说的话吧...
