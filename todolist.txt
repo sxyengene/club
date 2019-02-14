@@ -1,5 +1,7 @@
 评论的表，   courseid,commenttime,userid,comment,valid(1 可见,0 不可见)
 
+添加toast组件
+
 service 层 增add 查select。(删)
 
 投稿地址。
