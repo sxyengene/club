@@ -1,8 +1,9 @@
-评论的表，   courseid,commenttime,userid,comment,valid(1 可见,0 不可见)
+#评论的表，   courseid,commenttime,userid,comment,valid(1 可见,0 不可见)
+
+增加评论的入口
 
 service 层 增add 查select。(删)
 
 投稿地址。
 
 RSS？每周推荐？
-

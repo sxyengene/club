@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "全部评论"
+  "navigationBarTitleText": "全部评论",
+  "usingComponents": {
+    "i-toast": "/component/toast/index"
+  }
 }
