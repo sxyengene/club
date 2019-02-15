@@ -30,14 +30,14 @@
       <view wx:if="{{list.length}}">
         <view class="weui-media-box weui-media-box_text" wx:for="{{list}}">
           <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
-            <view class='cm-nickname fz28 c333'>
+            <view class='cm-nickname fz28 c666'>
               {{item.name}}
             </view>
             <view class='cm-cmtime c999 fz24'>
               {{item.ctime}}
             </view>
           </view>
-          <view class="weui-media-box__desc">{{item.content}}</view>
+          <view class="weui-media-box__desc brown">{{item.content}}</view>
         </view>
       </view>
       <view class="weui-media-box weui-media-box_text" wx:else>
@@ -49,14 +49,15 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell textarea-border">
           <view class="weui-cell__bd">
-            <textarea class="weui-textarea addcomment" show-confirm-bar bindinput="commentinput" bindconfirm="commentconfirm" placeholder="请写下你的评论" maxlength='200' />
+            <textarea class="weui-textarea addcomment" show-confirm-bar bindinput="commentinput" bindconfirm="commentconfirm" placeholder="请写下你的评论" maxlength='200' value="{{comment}}" />
             <view class="weui-cell__bd">
               <view class="weui-textarea-counter">{{clength}}/200</view>
             </view>
-            <view bindtap="commentconfirm">tijiao</view>
+            <!-- <view bindtap="commentconfirm">tijiao</view> -->
           </view>
         </view>
       </view>
     </view>
   </view>
+  <i-toast id="toast"></i-toast>
 </view>
