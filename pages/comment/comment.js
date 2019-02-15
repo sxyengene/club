@@ -9,7 +9,14 @@ Page({
     coursename:'全部评论',
     owner:'',
     coursetime:'',
-    list:[]
+    list:[{
+      content: "",
+      ctime: "",
+      name: "",
+      userid: 0,
+    }],
+    clength:0,
+    comment:'',
   },
   //事件处理函数
   bindViewTap: function() {
@@ -21,9 +28,26 @@ Page({
     });
 
     this.initVars();
+    this.getUserInfo();
   },
   getUserInfo: function(e) {
-
+    let openid = wx.getStorageSync('openid');
+    if (!openid) {
+      utils.goLogin();
+      return;
+    }
+    var oData = {
+      openid
+    };
+    wx.request({
+      url: utils.url('findUserById'),
+      data: oData,
+      success(json){
+        if(json.data.errorCode == 200){
+          
+        }
+      }
+    })
   },
   initVars() {
     var self = this;
@@ -47,6 +71,7 @@ Page({
         let data = json.data;
         if (data.errorCode == 200) {
           if (data.result.length) {
+            // data.result = [];
             self.setData({ list: data.result });
           } else {
 
@@ -71,6 +96,54 @@ Page({
             coursename:data.result.coursename,
             owner:data.result.name,
             coursetime: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+          })
+        }
+      }
+    })
+  },
+  commentinput(e){
+    this.setData({
+      clength: e.detail.value.length,
+      comment:e.detail.value,
+    })
+  },
+  commentconfirm(){
+    let openid = wx.getStorageSync('openid');
+    if (!openid) {
+      utils.goLogin();
+      return;
+    }
+    
+
+    if (this.data.comment.length <= 5){
+      wx.showToast({
+        title: '评论至少5个字',
+        icon: 'error',
+        duration: 2000
+      })
+      return;
+    }
+
+    let oData = {
+      courseid:this.data.courseid,
+      content: this.data.comment,
+      openid: openid
+    };
+
+    let listObj = {
+      content: this.data.comment,
+      ctime: utils.fTime(new Date),
+      name: "",
+    }
+
+    wx.request({
+      url: utils.url('addComment'),
+      data:oData,
+      success(json){
+        if(json.data.result == '200'){
+          self.setData({
+            comment:'',
+            list: [...self.data.list.concat,]
           })
         }
       }

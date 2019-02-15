@@ -27,16 +27,35 @@
       </view>
     </view> -->
     <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text" wx:for="{{list}}">
-        <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
-          <view class='cm-nickname fz28 c333'>
-            {{item.name}}
-          </view> 
-          <view class='cm-cmtime c999 fz24'>
-            {{item.ctime}}
+      <view wx:if="{{list.length}}">
+        <view class="weui-media-box weui-media-box_text" wx:for="{{list}}">
+          <view class="weui-media-box__title weui-media-box__title_in-text cm-line-top">
+            <view class='cm-nickname fz28 c333'>
+              {{item.name}}
+            </view>
+            <view class='cm-cmtime c999 fz24'>
+              {{item.ctime}}
+            </view>
+          </view>
+          <view class="weui-media-box__desc">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="weui-media-box weui-media-box_text" wx:else>
+        <view class="weui-media-box__desc tac fz32">
+          <image class='mb30' src="//i-debug.com/frontclub/public/waiting.gif"></image>
+          暂无评论，写下你想说的话吧...
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell textarea-border">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea addcomment" show-confirm-bar bindinput="commentinput" bindconfirm="commentconfirm" placeholder="请写下你的评论" maxlength='200' />
+            <view class="weui-cell__bd">
+              <view class="weui-textarea-counter">{{clength}}/200</view>
+            </view>
+            <view bindtap="commentconfirm">tijiao</view>
           </view>
         </view>
-        <view class="weui-media-box__desc">{{item.content}}</view>
       </view>
     </view>
   </view>
