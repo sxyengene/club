@@ -8,6 +8,12 @@ const {
 
 let commitFlag = true;
 
+// {
+// content: "",
+// ctime: "",
+// name: "",
+// userid: 0,
+// }
 
 Page({
   data: {
@@ -16,12 +22,7 @@ Page({
     owner: '',
     coursetime: '',
     username: '',
-    list: [{
-      content: "",
-      ctime: "",
-      name: "",
-      userid: 0,
-    }],
+    list: [],
     clength: 0,
     comment: '',
   },
